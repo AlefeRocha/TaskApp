@@ -23,6 +23,22 @@ class _FormScreenState extends State<FormScreen> {
             borderRadius: BorderRadius.circular(10),
             border: Border.all(width: 3),
           ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextFormField(
+                  textAlign: TextAlign.start,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Nome',
+                    fillColor: Colors.white70,
+                    filled: true,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
