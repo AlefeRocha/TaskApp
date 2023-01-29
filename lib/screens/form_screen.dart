@@ -136,6 +136,7 @@ class _FormScreenState extends State<FormScreen> {
                             content: Text('Tarefa criada!'),
                           ),
                         );
+                        Navigator.pop(context);
                       }
                     },
                     child: const Text('Adicionar'),
