@@ -6,22 +6,30 @@ class Task extends StatefulWidget {
   final String foto;
   final int difficultyLevel;
 
-  const Task(this.nomeTask, this.foto, this.difficultyLevel, {Key? key})
+  Task(this.nomeTask, this.foto, this.difficultyLevel, {Key? key})
       : super(key: key);
+
+  int level = 0;
 
   @override
   State<Task> createState() => _TaskState();
 }
 
 class _TaskState extends State<Task> {
-  int level = 0;
+
+  bool assetOrNetwork() {
+    if (widget.foto.contains('https')) {
+      return false;
+    }
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
     int levelMax = widget.difficultyLevel * 10;
 
-    Color colorFinished(){
-      if (level >= (levelMax)) {
+    Color colorFinished() {
+      if (widget.level >= (levelMax)) {
         return Colors.green;
       } else {
         return Colors.blue;
@@ -65,10 +73,15 @@ class _TaskState extends State<Task> {
                           topLeft: Radius.circular(4),
                           bottomLeft: Radius.circular(4),
                         ),
-                        child: Image.asset(
-                          widget.foto,
-                          fit: BoxFit.cover,
-                        ),
+                        child: assetOrNetwork()
+                            ? Image.asset(
+                                widget.foto,
+                                fit: BoxFit.cover,
+                              )
+                            : Image.network(
+                                widget.foto,
+                                fit: BoxFit.cover,
+                              ),
                       ),
                     ),
                     Column(
@@ -98,11 +111,13 @@ class _TaskState extends State<Task> {
                       height: 52,
                       width: 52,
                       child: ElevatedButton(
-                          onPressed: (level == (widget.difficultyLevel * 10)) ? null : (){
-                            setState(() {
-                              level++;
-                            });
-                          },
+                          onPressed: (widget.level == (widget.difficultyLevel * 10))
+                              ? null
+                              : () {
+                                  setState(() {
+                                    widget.level++;
+                                  });
+                                },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -128,7 +143,7 @@ class _TaskState extends State<Task> {
                       child: LinearProgressIndicator(
                         color: Colors.white,
                         value: (widget.difficultyLevel > 0)
-                            ? (level / widget.difficultyLevel) / 10
+                            ? (widget.level / widget.difficultyLevel) / 10
                             : 1,
                       ),
                     ),
@@ -136,7 +151,7 @@ class _TaskState extends State<Task> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
-                      'Level: $level',
+                      'Level: ${widget.level}',
                       style: const TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
