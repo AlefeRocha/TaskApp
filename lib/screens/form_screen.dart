@@ -40,7 +40,7 @@ class _FormScreenState extends State<FormScreen> {
       key: _formKey,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('New task'),
+          title: const Text('Nova tarefa'),
         ),
         body: Center(
           child: SingleChildScrollView(

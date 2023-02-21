@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tarefas/components/tasks_info.dart';
 import 'package:tarefas/data/task_inherited.dart';
 //import 'package:tarefas/screens/form_screen.dart';
 import 'package:tarefas/screens/initial_screen.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      //home: TasksInfos(),
       home: TaskInherited(child: const InitialScreen()),
     );
   }
