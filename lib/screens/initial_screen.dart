@@ -28,7 +28,7 @@ class _InitialScreenState extends State<InitialScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 100,
+                  height: 10,
                 ),
                 const Text(
                   'Painel de tarefas',
@@ -37,7 +37,7 @@ class _InitialScreenState extends State<InitialScreen> {
                     fontFamily: 'Roboto',
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Colors.black,
                     decoration: TextDecoration.none,
                   ),
                 ),
@@ -76,6 +76,16 @@ class _InitialScreenState extends State<InitialScreen> {
                         ],
                       ),
                     ],
+                  ),
+                ),
+                Text(
+                  'Tarefas',
+                  style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    decoration: TextDecoration.none,
                   ),
                 ),
               ],
