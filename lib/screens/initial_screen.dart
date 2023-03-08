@@ -4,7 +4,7 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 // import 'package:tarefas/components/tasks.dart';
 import 'package:tarefas/data/task_inherited.dart';
 import 'package:tarefas/screens/form_screen.dart';
-import 'package:tarefas/components/tasks_info.dart';
+//import 'package:tarefas/components/tasks_info.dart';
 
 class InitialScreen extends StatefulWidget {
   const InitialScreen({Key? key}) : super(key: key);
