@@ -42,13 +42,15 @@ class _InitialScreenState extends State<InitialScreen> {
                     decoration: TextDecoration.none,
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(
+                  height: 16,
+                ),
                 Container(
-                  padding: EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(15),
                   height: 100,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color(0xFF3B00E4),
+                    color: const Color(0xFF3B00E4),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Row(
@@ -58,7 +60,7 @@ class _InitialScreenState extends State<InitialScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Progresso geral',
                             style: TextStyle(
                               fontFamily: 'Roboto',
@@ -68,12 +70,12 @@ class _InitialScreenState extends State<InitialScreen> {
                               decoration: TextDecoration.none,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
                           Text(
                             '${TaskInherited.of(context).taskList.length} tarefas em andamento',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontFamily: 'Roboto',
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
@@ -92,7 +94,7 @@ class _InitialScreenState extends State<InitialScreen> {
                         progressColor: Colors.purple,
                         backgroundColor: Colors.white,
                         circularStrokeCap: CircularStrokeCap.round,
-                        center: Text(
+                        center: const Text(
                           '40%',
                           style: TextStyle(color: Colors.white),
                         ),
@@ -100,7 +102,7 @@ class _InitialScreenState extends State<InitialScreen> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -108,20 +110,20 @@ class _InitialScreenState extends State<InitialScreen> {
                   children: [
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            minimumSize: Size(180, 40)),
+                            minimumSize: const Size(180, 40)),
                         onPressed: () {},
-                        child: Text('Em andamento')),
+                        child: const Text('Em andamento')),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            minimumSize: Size(180, 40)),
+                            minimumSize: const Size(180, 40)),
                         onPressed: () {},
-                        child: Text('Concluídas')),
+                        child: const Text('Concluídas')),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                Text(
+                const Text(
                   'Tarefas',
                   style: TextStyle(
                     fontFamily: 'Roboto',
