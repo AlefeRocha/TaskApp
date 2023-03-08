@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 // import 'package:tarefas/components/tasks.dart';
 import 'package:tarefas/data/task_inherited.dart';
@@ -41,17 +42,21 @@ class _InitialScreenState extends State<InitialScreen> {
                     decoration: TextDecoration.none,
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 16),
                 Container(
-                  height: 140,
+                  padding: EdgeInsets.all(15),
+                  height: 100,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xFF3B00E4),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Progresso geral',
@@ -63,11 +68,14 @@ class _InitialScreenState extends State<InitialScreen> {
                               decoration: TextDecoration.none,
                             ),
                           ),
+                          SizedBox(
+                            height: 6,
+                          ),
                           Text(
                             '${TaskInherited.of(context).taskList.length} tarefas em andamento',
                             style: TextStyle(
                               fontFamily: 'Roboto',
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                               decoration: TextDecoration.none,
@@ -75,8 +83,43 @@ class _InitialScreenState extends State<InitialScreen> {
                           ),
                         ],
                       ),
+                      CircularPercentIndicator(
+                        animation: true,
+                        animationDuration: 1000,
+                        radius: 30,
+                        lineWidth: 10,
+                        percent: 0.4,
+                        progressColor: Colors.purple,
+                        backgroundColor: Colors.white,
+                        circularStrokeCap: CircularStrokeCap.round,
+                        center: Text(
+                          '40%',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ],
                   ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: Size(180, 40)),
+                        onPressed: () {},
+                        child: Text('Em andamento')),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: Size(180, 40)),
+                        onPressed: () {},
+                        child: Text('Concluídas')),
+                  ],
+                ),
+                SizedBox(
+                  height: 16,
                 ),
                 Text(
                   'Tarefas',
@@ -93,7 +136,7 @@ class _InitialScreenState extends State<InitialScreen> {
           ),
           Expanded(
             child: ListView(
-                padding: const EdgeInsets.only(top: 8, bottom: 104),
+                padding: const EdgeInsets.only(bottom: 104),
                 children: TaskInherited.of(context).taskList),
           ),
         ],
