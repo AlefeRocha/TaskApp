@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:tarefas/components/difficulty.dart';
 
 class Task extends StatefulWidget {
-  final String nomeTask;
-  final String foto;
+  final String nameTask;
+  final String photo;
   final int difficultyLevel;
 
-  Task(this.nomeTask, this.foto, this.difficultyLevel, {Key? key})
+  Task(this.nameTask, this.photo, this.difficultyLevel, {Key? key})
       : super(key: key);
 
   int level = 0;
@@ -18,7 +18,7 @@ class Task extends StatefulWidget {
 class _TaskState extends State<Task> {
 
   bool assetOrNetwork() {
-    if (widget.foto.contains('https')) {
+    if (widget.photo.contains('https')) {
       return false;
     }
     return true;
@@ -75,11 +75,11 @@ class _TaskState extends State<Task> {
                         ),
                         child: assetOrNetwork()
                             ? Image.asset(
-                                widget.foto,
+                                widget.photo,
                                 fit: BoxFit.cover,
                               )
                             : Image.network(
-                                widget.foto,
+                                widget.photo,
                                 fit: BoxFit.cover,
                               ),
                       ),
@@ -91,7 +91,7 @@ class _TaskState extends State<Task> {
                         SizedBox(
                           width: 200,
                           child: Text(
-                            widget.nomeTask,
+                            widget.nameTask,
                             style: const TextStyle(
                               fontSize: 18,
                               color: Colors.black,

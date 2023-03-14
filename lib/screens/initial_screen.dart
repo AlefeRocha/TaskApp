@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:tarefas/components/tasks.dart';
 
 // import 'package:tarefas/components/tasks.dart';
+//import 'package:tarefas/components/tasks_info.dart';
 import 'package:tarefas/data/task_inherited.dart';
 import 'package:tarefas/screens/form_screen.dart';
-//import 'package:tarefas/components/tasks_info.dart';
+
 
 class InitialScreen extends StatefulWidget {
   const InitialScreen({Key? key}) : super(key: key);
@@ -14,8 +16,26 @@ class InitialScreen extends StatefulWidget {
 }
 
 class _InitialScreenState extends State<InitialScreen> {
+
+  //int level = 0;
+  //int levelAmount = ;
+
+  // void globalLevel(){
+  //   level = TaskInherited.of(context).taskList.map((tasks) => tasks.difficultyLevel * 10).reduce((a, b) => a + b);
+  // }
+
   @override
   Widget build(BuildContext context) {
+    // int level = 0;
+    // int levelAmount = 0;
+    // int difficultyAmount = 0;
+    //
+    // for (Task i in TaskInherited.of(context).taskList) {
+    //   levelAmount += i.level;
+    //   difficultyAmount += i.difficultyLevel;
+    // }
+    // level += ((levelAmount / difficultyAmount) / 10) as int;
+
     return Scaffold(
       //backgroundColor: Colors.white,
       appBar: AppBar(
@@ -94,7 +114,7 @@ class _InitialScreenState extends State<InitialScreen> {
                         progressColor: Colors.purple,
                         backgroundColor: Colors.white,
                         circularStrokeCap: CircularStrokeCap.round,
-                        center: const Text(
+                        center: Text(
                           '40%',
                           style: TextStyle(color: Colors.white),
                         ),
